@@ -1,19 +1,22 @@
-//Build a web server
-
 package main
+
 import (
-   "fmt"
-   "net/http"
+    "fmt"
+    "html"
+    "log"
+    "net/http"
 )
 
-
-
 func main() {
-   http.ListenAndServe(":8080",nil)
-   fmt.Println("Server is listening at port 8080")
-   http.HandleFunc("/", handler)
-}
 
-func handler (write http.ResponseWriter, req *http.Request) {
-   fmt.Fprint(write, "<h1>Login</h1><form action='/log-in/' method='POST'> Password:<br> <input type='password' name='pass'><br> <input type='submit' value='Go!'></form>")
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
+    })
+    
+    http.HandleFunc("/hi", func(w http.ResponseWriter, r *http.Request){
+        fmt.Fprintf(w, "Hi")
+    })
+
+    log.Fatal(http.ListenAndServe(":8081", nil))
+
 }
