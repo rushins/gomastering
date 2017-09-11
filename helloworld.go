@@ -49,4 +49,13 @@ const n = 500000000
 const m = 3e20 / n
 fmt.Println(int64(m))
 fmt.Println(math.Sin(n)) 
+
+// for example
+
+i := 1
+for i <= 3 {
+fmt.Println(i)
+i = i + 1
+}
+
 }
