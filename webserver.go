@@ -1,10 +1,12 @@
 //web server 
+//fix time
 package main
 
 import (
     "fmt"
     "html"
     "log"
+    "time"
     "net/http"
 )
 
@@ -19,5 +21,5 @@ func main() {
     })
 
     log.Fatal(http.ListenAndServe(":8081", nil))
-
+    fmt.Println("time to sqash the output", time.Now())
 }
