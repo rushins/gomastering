@@ -14,7 +14,7 @@ import (
 
 // This program lists the pods in a cluster equivalent to
 //
-// kubectl get pods
+// kubectl command line "get pods" output 
 //
 func main() {
 	var ns string
@@ -39,7 +39,7 @@ func main() {
 		log.Fatalln("failed to get pods:", err)
 	}
 
-	// print pods
+	// list pods
 	for i, pod := range pods.Items {
 		fmt.Printf("[%d] %s\n", i, pod.GetName())
 	}
